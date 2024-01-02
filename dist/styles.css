@@ -1,0 +1,349 @@
+
+:root {
+  --lightgrey: #606569;
+  --grey: #282d31;
+  --orange: #dd5e18;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--grey);
+  color: var(--orange);
+  font-family: "Roboto", monospace;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+
+form,
+input,
+textarea {
+  outline: none;
+  border: none;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.8);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template: 5em 1fr / 1.5fr 5fr;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 3vh;
+}
+
+header,
+.logo,
+.dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  grid-column: span 2;
+}
+
+.logo img {
+  height: 5em;
+}
+
+.logo h3 {
+  font-style: italic;
+  letter-spacing: 0.1rem;
+  margin-left: 2em;
+  font-size: 2rem;
+}
+
+section {
+  margin-top: 0.2em;
+  margin-bottom: 2em;
+}
+
+.dashboard {
+  flex-direction: column;
+  border-right: 5px solid var(--lightgrey);
+}
+
+.home > *,
+.projects > *,
+.home li,
+.projects-container > * {
+  margin-bottom: 0.6em;
+}
+
+.home li::after,
+.project-card::after {
+  content: "";
+  display: block;
+  border-bottom: 2.5px solid var(--orange);
+  width: 0;
+  transition: width 0.5s ease;
+}
+
+.home li:hover::after,
+.project-card:hover::after {
+  width: 100%;
+}
+.home li:hover,
+.project-card:hover {
+  cursor: pointer;
+}
+
+.home,
+.projects {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.home {
+  flex: 2;
+}
+
+.home .line {
+  border-radius: 25px;
+  width: 80%;
+  height: 5px;
+  background: var(--lightgrey);
+  margin-top: auto;
+}
+.projects {
+  flex: 3;
+  margin-top: 1em;
+}
+
+.home h3,
+.projects h3 {
+  border-bottom: 3px solid var(--lightgrey);
+  font-size: 1.5rem;
+}
+
+.projects .btn {
+  background: var(--orange);
+  color: var(--grey);
+  padding: 0.5em;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.project-form {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  justify-items: center;
+}
+
+.project-form form {
+  grid-column: span 2;
+  display: flex;
+  margin: 0.5em;
+}
+
+.project-form form input {
+  text-align: center;
+  height: 2em;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.project-form form input:focus {
+  outline: none;
+}
+
+#add,
+#cancel,
+#display-todo {
+  color: var(--grey);
+  display: flex;
+  height: 2em;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  padding: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+#add,
+#cancel {
+  width: 85%;
+}
+
+#add {
+  background-color: #9fbc7f;
+}
+
+#cancel {
+  background-color: #bc8786;
+}
+
+#add:hover,
+#cancel:hover,
+#add-todo:hover {
+  filter: brightness(80%);
+}
+
+.viewport {
+  padding-top: 0;
+  display: grid;
+  grid-template: 2em 1fr / 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.viewport > * {
+  margin: 0.2em;
+}
+
+#display-todo {
+  background: var(--lightgrey);
+  color: var(--orange);
+  max-width: 8em;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+#display-todo:hover {
+  background-color: var(--orange);
+  color: var(--lightgrey);
+}
+
+.todo-form button {
+  font-size: 1rem;
+}
+
+.todo-form {
+  height: 100%;
+  padding: 0.2em;
+  background: var(--lightgrey);
+  display: grid;
+  grid-template: 1fr 0.6em / 1fr 1fr;
+  justify-items: center;
+}
+
+.todo-form form {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  grid-column: span 2;
+}
+
+[status="active"] {
+  font-weight: 700;
+  border-bottom: 2px solid var(--lightgrey);
+}
+
+.todo-form #add,
+#cancel {
+  grid-column: span 1;
+  width: 85%;
+}
+
+.todo-form form > * {
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  padding: 1.2em;
+  outline: none;
+  margin-bottom: 0.5em;
+}
+
+.todo-form form input[type="text"] {
+  font-weight: 500;
+  height: 2em;
+}
+
+.todo-form form textarea {
+  height: 100%;
+}
+
+.todos-container {
+  grid-column: span 2;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+.todo {
+  position: relative;
+  font-size: 1rem;
+  background: var(--lightgrey);
+  color: var(--grey);
+  padding: 1em;
+  border-radius: 20px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+
+.todo > * {
+  margin: 0.3em;
+}
+
+.todo h3 {
+  font-size: 1.8rem;
+  color: var(--orange);
+}
+
+#dialog {
+  width: clamp(350px, 40%, 500px);
+  margin: auto;
+  border: none;
+  height: 6em;
+  background: var(--lightgrey);
+  border-radius: 20px;
+}
+
+#dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.todo-form label{
+  color: var(--orange);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.1em;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+
+.todocardbtn {
+  position: absolute;
+    left: 2em
+}
+
+.fa-trash:hover, .fa-pencil:hover {
+  color: var(--orange);
+}
